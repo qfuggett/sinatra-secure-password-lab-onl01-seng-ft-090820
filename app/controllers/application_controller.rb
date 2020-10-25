@@ -38,6 +38,9 @@ class ApplicationController < Sinatra::Base
 
   post "/login" do
     ##your code here
+    if params[:username] == "" || params[:password] == ""
+      redirect "/failure"
+    end
   end
 
   get "/failure" do
