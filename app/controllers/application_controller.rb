@@ -20,7 +20,8 @@ class ApplicationController < Sinatra::Base
     binding.pry
     if params[:username] == "" || params[:password] == ""
       redirect "/failure"
-    else User.create[params]
+    else User.create(username: params[:username], password: params[:password])
+
       redirect :login
     end
   end
